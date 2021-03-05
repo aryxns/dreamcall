@@ -48,9 +48,9 @@ function HomePage() {
             <br/>
             <br/>
             <div className="">
-                <input className="ml-10 h-14 border p-2 text-black" placeholder="calendly link" onChange={e => setLink(e.target.value)} type="link"></input>
-                <button onClick={SignInWithTwitter} className="ml-5 h-14"><span className="font-bold lowercase p-4 bg-blue-400">Get in with Twitter</span></button>
+                <input className="ml-10 w-80 h-14 border p-2 text-black" placeholder="calendly link" onChange={e => setLink(e.target.value)} type="link"></input>
             </div>
+            <button onClick={SignInWithTwitter} className="mt-5 ml-10 h-14"><span className="font-bold lowercase p-4 bg-blue-400">Get in with Twitter</span></button>
         </div>
         </div>
     )

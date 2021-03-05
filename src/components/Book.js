@@ -28,15 +28,17 @@ function Bookings() {
             <ReactNotification/>
             <div className="content-start m-10 text-white font-mono text-left">
             <a href="/home" className="text-2xl"><span className="bg-gray-900 p-2">Dream Call</span></a>
-            <a href="/home" className="ml-11 text-black text-xl"><span className="p-2">Home</span></a>
-            <a href="/requests" className="ml-11 text-black text-xl"><span className="p-2">Requests</span></a>
-            <a href="/bookings" className="ml-11 text-black text-xl"><span className="bg-gray-200 p-2">Bookings</span></a>
             </div>
+            <div className="content-start text-left w-80 m-10 ml-10">
+            <a href="/home" className="text-black text-xl"><span className="p-1">Home</span></a>
+            <a href="/requests" className="ml-10 text-black text-xl"><span className="p-1">Requests</span></a>
+            <a href="/bookings" className="ml-10 text-black text-xl"><span className="bg-gray-200 p-1">Bookings</span></a>
+            </div> 
             <div className="content-start text-white font-mono text-left">
             <h1 className="ml-10 text-2xl text-black">Bookings</h1>
             <p className="mt-3 text-black text-sm text-gray-400 ml-10">When people accept your meeting requests, you'll see links to book meetings on this page.</p>
             </div>
-            <div className="mt-10 content-start text-black font-mono text-left">
+            <div className="mt-10 content-start mx-auto text-black font-mono text-left">
                 {bookings.map(booking => (
                     <button onClick={() => getUserData(booking)} className="bg-gray-50 underline p-2 text-lg ml-10">Yay! <span className="text-blue-600">{booking}</span> has accepted your request, click here to book a meeting now.</button>
                 ))}

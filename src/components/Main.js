@@ -67,19 +67,25 @@ function Main() {
             <ReactNotification/>
             <div className="content-start m-10 text-white font-mono text-left">
             <a href="/home" className="text-2xl"><span className="bg-gray-900 p-2">Dream Call</span></a>
-            <a href="/home" className="ml-11 text-black text-xl"><span className="bg-gray-200 p-2">Home</span></a>
-            <a href="/requests" className="ml-11 text-black text-xl"><span className="p-2">Requests</span></a>
-            <a href="/bookings" className="ml-11 text-black text-xl"><span className="p-2">Bookings</span></a>
             </div>
+        <div className="content-start text-left ml-10">
+            <a href="/home" className="text-black text-xl"><span className="bg-gray-200 p-1">Home</span></a>
+            <a href="/requests" className="ml-10 text-black text-xl"><span className="p-1">Requests</span></a>
+            <a href="/bookings" className="ml-10 text-black text-xl"><span className="p-1">Bookings</span></a>
+        </div>    
         <div className="content-start m-10 text-white font-mono text-left">
             <h1 className="mt-10 text-2xl text-black">Welcome {name}!</h1>
             <p className="mt-3 text-black text-lg">Explore a few profiles below and book your first call today :)</p>
         </div>
         {userlist.map(user => (
-            <div className="p-3 content-start m-10 font-mono text-left bg-gray-100 rounded-2xl text-black">
-                <h1 className="text-xl">{user.name} (<a className="text-blue-900" href={twitter.concat(user.username)}>@{user.username}</a>)</h1>
+          <div>
+          <div className="p-3 content-start font-mono m-10 mb-0 text-left bg-gray-100 shadow-xl border-2 text-black">
+          <h1 className="text-xl">{user.name} (<a className="text-blue-900" href={twitter.concat(user.username)}>@{user.username}</a>)</h1>
+          </div>
+            <div className="p-3 content-start m-10 mt-0 font-mono text-left bg-gray-100 shadow-xl border-2 text-black">
                 <h1 className="text-sm text-gray-900">{user.bio}</h1>
-                <button className="mt-3 p-1 rounded-lg bg-blue-200" onClick={() => testing(user.username)}><span className="text-gray-900">chat</span></button>
+                <button className="mt-3 p-1 border shadow-sm bg-blue-400" onClick={() => testing(user.username)}><span className="text-white">send chat request</span></button>
+            </div>
             </div>
         ))}
         </div>

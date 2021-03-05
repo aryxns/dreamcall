@@ -70,21 +70,21 @@ function Requests() {
             <ReactNotification/>
             <div className="content-start m-10 text-white font-mono text-left">
             <a href="/home" className="text-2xl"><span className="bg-gray-900 p-2">Dream Call</span></a>
-            <a href="/home" className="ml-11 text-black text-xl"><span className="p-2">Home</span></a>
-            <a href="/requests" className="ml-11 text-black text-xl"><span className="bg-gray-200 p-2">Requests</span></a>
-            <a href="/bookings" className="ml-11 text-black text-xl"><span className="p-2">Bookings</span></a>
             </div>
+            <div className="content-start text-left w-80 m-10 ml-10">
+            <a href="/home" className="text-black text-xl"><span className="p-1">Home</span></a>
+            <a href="/requests" className="ml-10 text-black text-xl"><span className="bg-gray-200 p-1">Requests</span></a>
+            <a href="/bookings" className="ml-10 text-black text-xl"><span className="p-1">Bookings</span></a>
+            </div> 
             <div className="content-start m-10 text-white font-mono text-left">
             <h1 className="mt-10 text-2xl text-black">Your Requests</h1>
             <p className="mt-3 text-black text-sm text-gray-400">don't see anything here? wait for sometime to receive requests</p>
             </div>
                 {requests.map(request => (
-                    <div className="font-mono m-10 h-20 bg-gray-100 rounded-2xl">
-                    <div className="float-left"><h1 className="m-3 pt-3 ml-11 font-bold text-lg">{request} has requested you for a call.</h1></div>
-                    <div className="float-right p-2 mr-11">
-                    <button className="m-3 text-white bg-green-400 rounded-xl p-2" onClick={() => acceptRequest(request)}>accept</button>
-                    <button className="bg-red-400 text-white rounded-xl p-2" onClick={() => denyRequest(request)}>deny</button>
-                    </div>
+                    <div className="font-mono m-10 h-32 bg-gray-100 shadow-xl">
+                    <div className="content-start text-left"><h1 className="m-3 pt-3 font-bold text-lg">{request} has requested you for a call.</h1></div>
+                    <button className="ml-2 float-left text-white shadow-xl bg-green-400 p-2" onClick={() => acceptRequest(request)}>accept</button>
+                    <button className="ml-2 float-left bg-red-400 shadow-xl shadow-green text-white p-2" onClick={() => denyRequest(request)}>deny</button>
                     </div>
                 ))}
         </div>

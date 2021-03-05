@@ -17,7 +17,8 @@ function HomePage() {
             localStorage.setItem("username", username)
             localStorage.setItem("token", token)
             const db = firebase.firestore()
-            db.collection("Users").doc(String(username)).set({
+            console.log(username, displayName)
+            db.collection("Users").doc(username).set({
                 bio: bio,
                 name: displayName,
                 requests: [],

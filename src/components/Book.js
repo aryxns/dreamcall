@@ -11,14 +11,14 @@ function Bookings() {
 
     function getUserData(arg) {
         const db = firebase.firestore();
-        const data = db.collection("users").doc(arg)
+        const data = db.collection("Users").doc(arg)
         data.get().then(function(doc){window.location = doc.data().link})
     }
 
     React.useEffect(() => {
         const fetchData = async() => {
           const db = firebase.firestore()
-          const data = db.collection("users").doc(username)
+          const data = db.collection("Users").doc(username)
           data.get().then(function(doc){setBookings(doc.data().bookings)})
         }
         fetchData()

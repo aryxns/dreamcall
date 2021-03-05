@@ -7,6 +7,7 @@ import axios from 'axios';
 
 function Main() {
     const username = localStorage.getItem('username')
+    console.log(username)
     const [name, setName] = React.useState("")
     const [eligible, setEligible] = React.useState("N")
     const [userlist, setUserlist] = React.useState([])
@@ -28,7 +29,7 @@ function Main() {
       if (eligible === "Y") {
         const arrayUnion = firebase.firestore.FieldValue.arrayUnion;
         const db = firebase.firestore()
-        db.collection("users").doc(arg).update({
+        db.collection("Users").doc(arg).update({
             requests: arrayUnion(username)
         }).then(store.addNotification({
             title: "Request Sent!",
@@ -49,7 +50,7 @@ function Main() {
     React.useEffect(() => {
         const fetchData = async() => {
           const db = firebase.firestore()
-          const data = db.collection("users").doc(username)
+          const data = db.collection("Users").doc(username)
           data.get().then(function(doc){setName(doc.data().name)})
         }
         fetchData()
@@ -57,7 +58,7 @@ function Main() {
       React.useEffect(() => {
         const getUsers = async() => {
           const db = firebase.firestore()
-          const data = await db.collection("users").get()
+          const data = await db.collection("Users").get()
           setUserlist(data.docs.map(doc => doc.data()))
         }
         getUsers()

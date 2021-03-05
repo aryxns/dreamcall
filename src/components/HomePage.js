@@ -10,18 +10,19 @@ function HomePage() {
     var provider = new firebase.auth.TwitterAuthProvider();
     function SignInWithTwitter(){
         firebase.auth().signInWithPopup(provider).then(function(result){
-            var token = result.credential.accessToken;
-            var bio = result.additionalUserInfo.profile.description;
-            var username = result.additionalUserInfo.username;
-            var displayName = result.user.displayName;
+            const token = result.credential.accessToken;
+            const bio = result.additionalUserInfo.profile.description;
+            const username = result.additionalUserInfo.username;
+            const displayName = result.user.displayName;
             localStorage.setItem("username", username)
             localStorage.setItem("token", token)
             const db = firebase.firestore()
-            db.collection("users").doc(username).set({
+            db.collection("Users").doc(String(username)).set({
                 bio: bio,
                 name: displayName,
                 requests: [],
-                username: username,
+                bookings: [],
+                username: username, 
                 link: link,
             }).then(store.addNotification({
                 title: "Account Created Successfully!",

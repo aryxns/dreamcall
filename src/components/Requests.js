@@ -12,9 +12,9 @@ function Requests() {
         const arrayRemove = firebase.firestore.FieldValue.arrayRemove;
         const arrayUnion = firebase.firestore.FieldValue.arrayUnion;
         const db = firebase.firestore()
-        db.collection("users").doc(arg).update({
+        db.collection("Users").doc(arg).update({
             bookings: arrayUnion(username)
-        }).then(db.collection("users").doc(username).update({
+        }).then(db.collection("Users").doc(username).update({
             requests: arrayRemove(arg)
         })).then(store.addNotification({
             title: "Request Accepted!",
@@ -34,7 +34,7 @@ function Requests() {
     function denyRequest(arg) {
         const arrayRemove = firebase.firestore.FieldValue.arrayRemove;
         const db = firebase.firestore()
-        db.collection("users").doc(username).update({
+        db.collection("Users").doc(username).update({
             requests: arrayRemove(arg)
         }).then(store.addNotification({
             title: "Request Denied!",
@@ -53,14 +53,14 @@ function Requests() {
 
     const fetchData = async() => {
         const db = firebase.firestore()
-        const data = db.collection("users").doc(username)
+        const data = db.collection("Users").doc(username)
         data.get().then(function(doc){setRequests(doc.data().requests)})
       }
 
     React.useEffect(() => {
         const fetchData = async() => {
           const db = firebase.firestore()
-          const data = db.collection("users").doc(username)
+          const data = db.collection("Users").doc(username)
           data.get().then(function(doc){setRequests(doc.data().requests)})
         }
         fetchData()

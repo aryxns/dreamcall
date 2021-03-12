@@ -6,40 +6,43 @@ import 'react-notifications-component/dist/theme.css'
 
 
 function HomePage() {
+    const db = firebase.firestore()
     const [link, setLink] = React.useState("")
+    //const [myuser, setMyUser] = React.useState("")
+    //const [bio, setBio] = React.useState("")
+    //const [showName, setShowName] = React.useState("")
     var provider = new firebase.auth.TwitterAuthProvider();
     function SignInWithTwitter(){
         firebase.auth().signInWithPopup(provider).then(function(result){
-            const token = result.credential.accessToken;
-            const bio = result.additionalUserInfo.profile.description;
-            const username = result.additionalUserInfo.username;
-            const displayName = result.user.displayName;
-            localStorage.setItem("username", username)
-            localStorage.setItem("token", token)
-            const db = firebase.firestore()
-            console.log(username, displayName)
-            db.collection("Users").doc(username).set({
-                bio: bio,
-                name: displayName,
-                requests: [],
-                bookings: [],
-                username: username, 
-                link: link,
-            }).then(store.addNotification({
-                title: "Account Created Successfully!",
-                message: "redirecting to home page",
-                type: "success",
-                insert: "top",
-                container: "top-left",
-                animationIn: ["animate__animated", "animate__fadeIn"],
-                animationOut: ["animate__animated", "animate__fadeOut"],
-                dismiss: {
-                  duration: 5000,
-                  onScreen: true
-                }
-              })).then(window.location.href = "/home")
-        })
-    }
+            var bio = (result.additionalUserInfo.profile.description);
+            var myuser = (result.additionalUserInfo.username);
+            var showName = (result.user.displayName);
+            localStorage.setItem("username", myuser);
+            localStorage.setItem("showName", showName);
+            localStorage.setItem("bio", bio)
+            }).then(() => {
+                var username = localStorage.getItem("username")
+                db.collection("Users").doc(username).set({
+                    bio: localStorage.getItem("bio"),
+                    name: localStorage.getItem("showName"),
+                    requests: [],
+                    bookings: [],
+                    username: username, 
+                    link: link,
+                }).then(store.addNotification({
+                    title: "Account Created Successfully!",
+                    message: "redirecting to home page",
+                    type: "success",
+                    insert: "top",
+                    container: "top-left",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: true
+                    }
+            })).then(window.location.href = "/home")
+            })}
     return(
         <div>
             <ReactNotification />

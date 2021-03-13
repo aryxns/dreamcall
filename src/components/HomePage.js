@@ -119,7 +119,7 @@ function HomePage() {
         <div>
             <ReactNotification />
         <div className="content-start text-white font-mono text-left">
-            <h1 className="m-10 text-2xl"><span className="p-2 bg-gray-900">Dream.Call</span><button onClick={Login} className="ml-20 underline text-black">LOGIN</button></h1>
+            <h1 className="m-10 text-2xl"><span className="p-2 bg-gray-900">Dream.Call</span><button onClick={Login} className="ml-15 underline text-black">LOGIN</button></h1>
             <p className="ml-10 text-xl  text-black">asking for meetings over twitter DMs sucks 😡</p>
             <p className="ml-10 text-xl  text-black">if you follow someone and they follow you back, you can send them a meeting request and book a 15-min meeting with them &#128512;</p>
             <br/>

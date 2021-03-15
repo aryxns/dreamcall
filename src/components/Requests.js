@@ -71,20 +71,22 @@ function Requests() {
             <div className="content-start m-10 text-white font-mono text-left">
             <a href="/home" className="text-2xl"><span className="bg-gray-900 p-2">Dream Call</span></a>
             </div>
-            <div className="content-start text-left w-80 m-10 ml-10">
-            <a href="/home" className="text-black text-xl"><span className="p-1">Home</span></a>
-            <a href="/requests" className="ml-10 text-black text-xl"><span className="bg-gray-200 p-1">Requests</span></a>
-            <a href="/bookings" className="ml-10 text-black text-xl"><span className="p-1">Bookings</span></a>
+            <div className="content-start font-mono text-left w-100 m-10 ml-10">
+            <a href="/home" className="text-black text-xl"><button className="p-1 focus:border-blue-300">Home</button></a>
+            <a href="/requests" className="ml-10 text-black text-xl"><button className="bg-gray-100 focus:border-blue-300 rounded-sm p-1">Requests</button></a>
+            <a href="/bookings" className="ml-10 text-black text-xl"><button className="p-1 focus:border-blue-300">Bookings</button></a>
             </div> 
             <div className="content-start m-10 text-white font-mono text-left">
             <h1 className="mt-10 text-2xl text-black">Your Requests</h1>
             <p className="mt-3 text-black text-sm text-gray-400">don't see anything here? wait for sometime to receive requests</p>
             </div>
                 {requests.map(request => (
-                    <div className="font-mono m-10 h-32 bg-gray-100 shadow-xl">
-                    <div className="content-start text-left"><h1 className="m-3 pt-3 font-bold text-lg">{request} has requested you for a call.</h1></div>
-                    <button className="ml-2 float-left text-white shadow-xl bg-green-400 p-2" onClick={() => acceptRequest(request)}>accept</button>
-                    <button className="ml-2 float-left bg-red-400 shadow-xl shadow-green text-white p-2" onClick={() => denyRequest(request)}>deny</button>
+                    <div className="font-mono m-10 h-48 md:h-20 rounded-sm bg-blue-50 shadow-xl">
+                    <div className="content-start text-left float-left"><h1 className="m-3 pt-4 font-bold text-lg"><span className="bg-gray-200 rounded-sm p-0.5">{request}</span> has requested a call with you!</h1></div>
+                    <div className="float-right pt-3 m-3">
+                    <button className="ml-2 float-left focus:border-blue-300 rounded-sm border-1 text-white shadow-sm bg-green-400 p-2" onClick={() => acceptRequest(request)}>accept</button>
+                    <button className="ml-2 float-left focus:border-blue-300 bg-red-400 border-1 rounded-sm shadow-sm shadow-green text-white p-2" onClick={() => denyRequest(request)}>deny</button>
+                    </div>
                     </div>
                 ))}
         </div>

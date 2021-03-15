@@ -74,7 +74,7 @@ function Requests() {
             <div className="content-start font-mono text-left w-100 ml-10">
             <a href="/home" className="text-black text-xl"><button className="p-1 focus:border-blue-300">Home</button></a>
             <a href="/requests" className="ml-10 text-black text-xl"><button className="bg-gray-100 focus:border-blue-300 p-1">Requests</button></a>
-            <a href="/bookings" className="ml-10 text-black text-xl"><button className="p-1 focus:border-blue-300">Bookings</button></a>
+            <a href="/bookings" className="ml-8 md:ml-10 text-black text-xl"><button className="p-1 focus:border-blue-300">Bookings</button></a>
             </div> 
             <div className="content-start m-10 text-white font-mono text-left">
             <h1 className="mt-10 text-2xl text-black">Your Requests</h1>
